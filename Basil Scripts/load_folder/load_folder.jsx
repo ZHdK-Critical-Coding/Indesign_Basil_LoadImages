@@ -18,14 +18,21 @@ function draw() {
         if (files.length === 0) {
             alert("No images found in the folder.");
         } else {
-            // Loop through each page in the document
+            // Loop through each image: one image per page
             for (var i = 0; i < files.length; i++) {
-                var imageFile = files[i]; // cycle images if fewer than pages
-                var page = addPage();
+                var imageFile = files[i];
 
-                // Alternate sides: left = i % 2 === 0, right = i % 2 === 1
-                var pageBounds = bounds(page); // [y1, x1, y2, x2]
-                
+                // Use the pages already in the document first,
+                // add a new page at the end only when they run out
+                var currentPage;
+                if (i < pageCount()) {
+                    currentPage = page(i + 1); // page numbers start at 1
+                } else {
+                    currentPage = addPage();
+                }
+
+                var pageBounds = bounds(currentPage); // object with width and height of the page
+
                 var r = rect(0,0, pageBounds.width,pageBounds.height);
                 r.place(imageFile);
                 r.fit(FitOptions.PROPORTIONALLY); // fit proportionally
