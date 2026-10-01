@@ -2,5 +2,5 @@ name: "Load Images"
 date: 2025-10-02
 author: Urs Hofer
 technology: "Basil.js"
-maincategory: code-samples
-category: output
+maincategory: document-generation
+category: batch-mode

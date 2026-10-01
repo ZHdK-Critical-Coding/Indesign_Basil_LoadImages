@@ -22,13 +22,22 @@ Tutorials; basil.js steht unter der MIT-Lizenz); das Script liegt in
    // @includepath "~/Documents/;%USERPROFILE%Documents";
    // @include "basiljs/basil.js";
    ```
-   InDesign erwartet die Bibliothek deshalb in `~/Documents/basiljs`. Am
-   einfachsten geht das mit einem symbolischen Link:
+   InDesign erwartet die Bibliothek deshalb in `~/Documents/basiljs`. Das
+   Installations-Script kopiert sie dorthin. Ein Terminal im Ordner des
+   Repositorys öffnen und ausführen:
+   - **macOS**: `./install_basil.sh`
+   - **Windows**: `powershell -ExecutionPolicy Bypass -File install_basil.ps1`
+
+   Ist basil.js schon installiert (z. B. von einem anderen
+   Basil-Beispiel), lässt das Script es unverändert und meldet das.
+
+   Statt einer Kopie geht auch ein symbolischer Link; die Bibliothek bleibt
+   dann im Repository:
    ```sh
    ln -s "/pfad/zu/Indesign_Basil_LoadImages/basiljs" ~/Documents
    ```
-   Alternativ die Zeile `@includepath` auf den Ort ändern, an dem die
-   Bibliothek tatsächlich liegt.
+   Oder die Zeile `@includepath` auf den Ort ändern, an dem die Bibliothek
+   tatsächlich liegt.
 2. In InDesign das Scripts-Panel öffnen (*Fenster → Hilfsprogramme →
    Skripte*), mit Rechtsklick auf den Ordner *Benutzer* *Im Finder
    anzeigen* wählen und den Ordner `Basil Scripts` dort hinein verlinken:
